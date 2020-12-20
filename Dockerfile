@@ -1,8 +1,8 @@
 FROM openjdk:11-jdk-slim
 
-ENV VERSION 9.1.2_PUBLIC
-ENV DL https://www.ghidra-sre.org/ghidra_${VERSION}_20200212.zip
-ENV GHIDRA_SHA ebe3fa4e1afd7d97650990b27777bb78bd0427e8e70c1d0ee042aeb52decac61
+ENV VERSION 9.2_PUBLIC
+ENV DL https://www.ghidra-sre.org/ghidra_${VERSION}_20201113.zip
+ENV GHIDRA_SHA ffebd3d87bc7c6d9ae1766dd3293d1fdab3232a99b170f8ea8b57497a1704ff6
 
 RUN apt-get update && apt-get install -y wget unzip dnsutils --no-install-recommends \
     && wget --progress=bar:force -O /tmp/ghidra.zip ${DL} \

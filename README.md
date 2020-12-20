@@ -1,10 +1,10 @@
 <p align="center">
-  <a href="https://github.com/bytehow/ghidra-server"><h3 align="center">docker-ghidra-server</h3></a>
+  <a href="https://https://hub.docker.com/r/bytehow/ghidra-server"><h3 align="center">docker-ghidra-server</h3></a>
   <p align="center">Ghidra Server Docker Image</p>
 
 ## Why?
 
-Standing up a Ghidra Server in the cloud is a pain. It doesn't have to be.
+Standing up a Ghidra Server in the cloud is a pain. It doesn't have to be. If you're new to Ghidra Server, [this primer](https://byte.how/posts/collaborative-reverse-engineering/) is a good introduction.
 
 ## Images
 
