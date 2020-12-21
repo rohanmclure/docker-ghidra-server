@@ -9,10 +9,10 @@ Standing up a Ghidra Server in the cloud is a pain. It doesn't have to be. If yo
 ## Images
 
 ```bash
-bytehow/ghidra-server   latest   1.26GB
-bytehow/ghidra-server   9.1.2    1.26GB
-bytehow/ghidra-server   beta     1.33GB
-bytehow/ghidra-server   dev      1.22GB
+bytehow/ghidra-server   latest
+bytehow/ghidra-server   9.2      
+bytehow/ghidra-server   9.1.2    
+bytehow/ghidra-server   beta     
 ```
 
 > **NOTE:** tag `beta` is built by compiling Ghidra from its `master` branch source
