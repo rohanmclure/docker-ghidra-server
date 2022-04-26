@@ -1,8 +1,9 @@
 FROM openjdk:11-jdk-slim
 
-ENV VERSION 9.2_PUBLIC
-ENV DL https://www.ghidra-sre.org/ghidra_${VERSION}_20201113.zip
-ENV GHIDRA_SHA ffebd3d87bc7c6d9ae1766dd3293d1fdab3232a99b170f8ea8b57497a1704ff6
+ENV VERSION Ghidra_10.1.3
+ENV BUILD_TIME 20220421
+ENV DL https://github.com/NationalSecurityAgency/ghidra/releases/download/${VERSION,,}_build/${VERSION}_PUBLIC_${BUILD_TIME}.zip
+ENV GHIDRA_SHA 9c73b6657413686c0af85909c20581e764107add2a789038ebc6eca49dc4e812
 
 RUN apt-get update && apt-get install -y wget unzip dnsutils --no-install-recommends \
     && wget --progress=bar:force -O /tmp/ghidra.zip ${DL} \
@@ -15,14 +16,20 @@ RUN apt-get update && apt-get install -y wget unzip dnsutils --no-install-recomm
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives /tmp/* /var/tmp/* /ghidra/docs /ghidra/Extensions/Eclipse /ghidra/licenses
 
-WORKDIR /ghidra
+RUN useradd ghidra \
+ && mkdir -p /home/ghidra \
+ && chown -R ghidra /home/ghidra \
+ && chmod 755 /home/ghidra
+USER ghidra
 
-COPY entrypoint.sh /entrypoint.sh
-COPY server.conf /ghidra/server/server.conf
+WORKDIR /home/ghidra/
+
+COPY entrypoint.sh /home/ghidra/entrypoint.sh
+COPY server.conf /home/ghidra/server/server.conf
 
 EXPOSE 13100 13101 13102
 
-RUN mkdir /repos
+RUN mkdir -p /home/ghidra/repos
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["server"]
