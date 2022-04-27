@@ -16,20 +16,25 @@ RUN apt-get update && apt-get install -y wget unzip dnsutils --no-install-recomm
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives /tmp/* /var/tmp/* /ghidra/docs /ghidra/Extensions/Eclipse /ghidra/licenses
 
-RUN useradd ghidra \
- && mkdir -p /home/ghidra \
- && chown -R ghidra /home/ghidra \
- && chmod 755 /home/ghidra
-USER ghidra
+# RUN useradd ghidra \
+#  && mkdir -p /home/ghidra \
+#  && chown -R ghidra /home/ghidra \
+#  && chmod 755 /home/ghidra
+# USER ghidra
 
-WORKDIR /home/ghidra/
+# WORKDIR /home/ghidra/
+WORKDIR /ghidra
 
-COPY entrypoint.sh /home/ghidra/entrypoint.sh
-COPY server.conf /home/ghidra/server/server.conf
+# COPY entrypoint.sh /home/ghidra/entrypoint.sh
+# COPY server.conf /home/ghidra/server/server.conf
+COPY entrypoint.sh /entrypoint.sh
+COPY server.conf /ghidra/server/server.conf
 
 EXPOSE 13100 13101 13102
 
-RUN mkdir -p /home/ghidra/repos
+# RUN mkdir -p /home/ghidra/repos
+RUN mkdir /repos
 
-ENTRYPOINT ["/home/ghidra/entrypoint.sh"]
+# ENTRYPOINT ["/home/ghidra/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["server"]
