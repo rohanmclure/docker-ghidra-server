@@ -1,21 +1,10 @@
 <p align="center">
-  <a href="https://hub.docker.com/r/bytehow/ghidra-server"><h3 align="center">docker-ghidra-server</h3></a>
+  <a href="https://hub.docker.com/r/rohanmclure/ghidra-server"><h3 align="center">docker-ghidra-server</h3></a>
   <p align="center">Ghidra Server Docker Image</p>
 
 ## Why?
 
 Standing up a Ghidra Server in the cloud is a pain. It doesn't have to be. If you're new to Ghidra Server, [this primer](https://byte.how/posts/collaborative-reverse-engineering/) is a good introduction.
-
-## Images
-
-```bash
-bytehow/ghidra-server   latest
-bytehow/ghidra-server   9.2      
-bytehow/ghidra-server   9.1.2    
-bytehow/ghidra-server   beta     
-```
-
-> **NOTE:** tag `beta` is built by compiling Ghidra from its `master` branch source
 
 ## Getting Started
 
@@ -31,7 +20,7 @@ $ docker run -it --rm \
     -e GHIDRA_USERS="admin bytehow" \
     -v /path/to/repos:/repos \
     -p 13100-13102:13100-13102 \
-    bytehow/ghidra-server
+    rohanmclure/ghidra-server
 ```
 
 ### Local-only Server
@@ -43,7 +32,7 @@ $ docker run -it --rm \
     -e GHIDRA_PUBLIC_HOSTNAME="0.0.0.0" \
     -v /path/to/repos:/repos \
     -p 13100-13102:13100-13102 \
-    bytehow/ghidra-server
+    rohanmclure/ghidra-server
 ```
 
 
