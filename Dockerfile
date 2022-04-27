@@ -31,5 +31,5 @@ EXPOSE 13100 13101 13102
 
 RUN mkdir -p /home/ghidra/repos
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/home/ghidra/entrypoint.sh"]
 CMD ["server"]
