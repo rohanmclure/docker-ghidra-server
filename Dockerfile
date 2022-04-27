@@ -2,7 +2,7 @@ FROM openjdk:11-jdk-slim
 
 ENV VERSION 10.1.3
 ENV BUILD_TIME 20220421
-ENV DL https://github.com/NationalSecurityAgency/ghidra/releases/download/ghidra_${VERSION}_build/Ghidra_${VERSION}_PUBLIC_${BUILD_TIME}.zip
+ENV DL https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_${VERSION}_build/ghidra_${VERSION}_PUBLIC_${BUILD_TIME}.zip
 ENV GHIDRA_SHA 9c73b6657413686c0af85909c20581e764107add2a789038ebc6eca49dc4e812
 
 RUN apt-get update && apt-get install -y wget unzip dnsutils --no-install-recommends \
