@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y wget unzip dnsutils --no-install-recomm
     && wget --progress=bar:force -O /tmp/ghidra.zip ${DL} \
     && echo "$GHIDRA_SHA /tmp/ghidra.zip" | sha256sum -c - \
     && unzip /tmp/ghidra.zip \
-    && mv ghidra_${VERSION} /ghidra \
+    && mv ghidra_${VERSION}_PUBLIC /ghidra \
     && chmod +x /ghidra/ghidraRun \
     && echo "===> Clean up unnecessary files..." \
     && apt-get purge -y --auto-remove wget unzip \
